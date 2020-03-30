@@ -6,6 +6,7 @@ import {generatePalette} from './colorHelper'
 import seedColors from './seedColors';
 import Palette from './component/palette/palette.component';
 import PaletteList from './component/palette-list/palette-list.component';
+import SingleColorPalette from './component/single-color-palette/single-color-palette.component';
 
 
 class App extends React.Component {
@@ -19,7 +20,7 @@ class App extends React.Component {
 				<Route 
 					exact 
 					path='/' 
-					render={()=><PaletteList palettes={seedColors} />}
+					render={(routeProps)=><PaletteList palettes={seedColors} {...routeProps} />}
 				/>
 				<Route 
 					exact 
@@ -28,6 +29,18 @@ class App extends React.Component {
 						<Palette 
 							palette={generatePalette(
 								this.findPalette(routeProps.match.params.id)
+							)}
+						/>
+					)}
+				/>
+				<Route 
+					exact
+					path='/palette/:paletteId/:colorId'
+					render={ (routeProps)=>(
+						<SingleColorPalette 
+							colorId={routeProps.match.params.colorId}
+							palette={generatePalette(
+								this.findPalette(routeProps.match.params.paletteId)
 							)}
 						/>
 					)}
