@@ -30,7 +30,7 @@ class Palatte extends React.Component {
 					background={color[format]} 
 					key={color.id} 
 					id={color.id} 
-					showLink={true}
+					showingFullPalette
 					moreUrl={`/palette/${id}/${color.id}`}
 				/>
 			)
