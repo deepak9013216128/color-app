@@ -36,7 +36,7 @@ const styles = {
 		lineHeight: '30px',
 		textTransform: 'uppercase',
 		border: 'none',
-		textCecoration: 'none',
+		textDecoration: 'none',
 		opacity: '0'
 	},
 	seeMore: {
